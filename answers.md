@@ -11,6 +11,6 @@ I passed trainer_path current_trainer to redirect_to. This sets the id to the id
 # Question 5: Explain how putting this line "flash[:error] = @pokemon.errors.full_messages.to_sentence" shows error messages on your form.
 For the flash hashmap, the error key would map to the errors variable for pokemon, formatted using full_messages and to_sentence.
 # Give us feedback on the project and decal below!
-Useful as such, like the Pokemon concept haha.
+Useful as such, like the Pokemon concept  haha.
 # Extra credit: Link your Heroku deployed app
 https://github.com/dhruvilbadani/proj1
