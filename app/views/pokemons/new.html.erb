@@ -1,0 +1,8 @@
+<h1>Create a Pokemon</h1>
+<% if flash[:any_key] %>
+	<%= flash[:any_key] %>
+<% end %>
+<%= simple_form_for @pokemon do |f| %>
+  <%= f.input :name, placeholder: 'Name of Pokemon' %>
+  <%= f.button :submit %>
+<% end %>

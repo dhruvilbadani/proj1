@@ -1,0 +1,26 @@
+<h3>Trainer</h3>
+<p><b>Name:</b> <%= @trainer.name if @trainer.name %></p>
+<p><b>Email:</b> <%= @trainer.email if @trainer.email %></p>
+
+<h3>Pokemons</h3>
+<hr>
+<% if @trainer.pokemons.count > 0 %>
+    <% Pokemon.all.each do |p| %>
+          <% if (current_trainer.id == p.trainer_id || !p.hidden) && p.trainer_id == @trainer.id %>
+              <p><b>Name:</b>  <i><%= p.name %></i> </p>
+              <p><b>Level:</b> <i><%= p.level %></i> </p>
+              <p><b>Health:</b> <i><%= p.health %></i> </p>
+              <%= button_to "Damage!", damage_path(id: p), :class => "button small", :method => :patch %>
+              <% if current_trainer.id == @trainer.id %>
+              <%= button_to "Heal!", heal_path(id: p), :class => "button small", :method => :patch %>
+              <% end %>
+              <hr>
+          <% end %>
+<% end %>
+<% else %>
+  <%= @trainer.name %> has no Pokemons to show!
+<% end %>
+
+<% if current_trainer.id == @trainer.id %>
+  <%= button_to "Create a new Pokemon!", new_pokemon_path(id: p), :class => "button small", :method => :get %>
+<% end %>
